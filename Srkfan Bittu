@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SRK WORLD 👑</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{
+font-family:Arial;background:#030303;color:white;
+overflow-x:hidden;text-align:center
+}
+canvas{position:fixed;inset:0;z-index:-1}
+header{
+padding:25px;font-size:18px;letter-spacing:5px;
+color:#d6b36a
+}
+.hero{
+min-height:85vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;padding:30px
+}
+.crown{font-size:70px;animation:float 2s infinite alternate}
+h1{
+font-size:75px;letter-spacing:8px;color:#e8c878;
+text-shadow:0 0 15px #d6a83d,0 0 50px #8b5a00;
+animation:glow 2s infinite alternate
+}
+h2{
+font-size:22px;letter-spacing:6px;margin:15px;color:#ddd
+}
+.line{
+width:180px;height:2px;background:#d6b36a;
+box-shadow:0 0 15px #d6b36a;margin:25px
+}
+.quote{
+max-width:650px;color:#aaa;font-size:18px;line-height:1.7
+}
+.date{
+margin-top:25px;color:#d6b36a;font-size:18px
+}
+.buttons{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+a{
+text-decoration:none;color:white;border:1px solid #d6b36a;
+padding:12px 22px;border-radius:25px;
+transition:.3s
+}
+a:hover{
+background:#d6b36a;color:#000;
+box-shadow:0 0 30px #d6b36a;transform:scale(1.08)
+}
+footer{
+padding:25px;color:#666;letter-spacing:2px
+}
+@keyframes glow{
+to{text-shadow:0 0 25px #fff,0 0 70px #d6a83d}
+}
+@keyframes float{to{transform:translateY(-15px)}}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<header>SRK WORLD • THE KING • FAN PAGE 👑</header>
+
+<section class="hero">
+
+<div class="crown">👑</div>
+
+<h1>SHAH RUKH KHAN</h1>
+
+<h2>THE WORLD'S BIGGEST SUPERSTAR</h2>
+
+<div class="line"></div>
+
+<p class="quote">
+“Cinema, charisma, romance and an unforgettable legacy.”
+<br><br>
+Welcome to a fan-made tribute to the King of Bollywood.
+</p>
+
+<div class="date">
+⭐ Born • 2 November 1965 ⭐
+</div>
+
+<div class="buttons">
+
+<a href="https://instagram.com/srkworld53" target="_blank">
+📸 Instagram • @srkworld53
+</a>
+
+<a href="https://x.com" target="_blank">
+𝕏 X / Twitter
+</a>
+
+<a href="https://www.youtube.com" target="_blank">
+▶ YouTube
+</a>
+
+</div>
+
+</section>
+
+<footer>
+MADE BY A SRK FAN ❤️ • SRK WORLD 53
+</footer>
+
+<script>
+let c=document.getElementById("stars");
+let x=c.getContext("2d");
+
+function resize(){
+c.width=innerWidth;c.height=innerHeight
+}
+resize();onresize=resize;
+
+let stars=[];
+for(let i=0;i<180;i++){
+stars.push({
+x:Math.random()*innerWidth,
+y:Math.random()*innerHeight,
+r:Math.random()*2,
+s:Math.random()*.6+.1
+});
+}
+
+function animate(){
+x.fillStyle="#030303";
+x.fillRect(0,0,c.width,c.height);
+
+stars.forEach(s=>{
+s.y+=s.s;
+if(s.y>c.height)s.y=0;
+
+x.beginPath();
+x.arc(s.x,s.y,s.r,0,Math.PI*2);
+x.fillStyle="rgba(255,215,130,.8)";
+x.fill();
+});
+
+requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
